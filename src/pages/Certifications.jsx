@@ -5,23 +5,23 @@ import SectionTitle from "../components/SectionTitle";
 const certificates = [
   {
     name: "The Joy of Computing Using Python (NPTEL)",
-    file: "/certificates/joy-of-computing-python.pdf",
+    file: "/portfolio-website/certificates/joy-of-computing-python.pdf",
   },
   {
     name: "Data Science Workshop – Train to Transform",
-    file: "/certificates/data-scientist-workshop.pdf",
+    file: "/portfolio-website/certificates/data-scientist-workshop.pdf",
   },
   {
     name: "Cloud Computing Fundamentals (Simplilearn)",
-    file: "/certificates/cloud-computing-simplilearn.pdf",
+    file: "/portfolio-website/certificates/cloud-computing-simplilearn.pdf",
   },
   {
     name: "High Performance Computing (NPTEL, IIT Kanpur)",
-    file: "/certificates/hpc-nptel.pdf",
+    file: "/portfolio-website/certificates/hpc-nptel.pdf",
   },
   {
     name: "Diploma in Computer Application",
-    file: "/certificates/diploma-computer-application.pdf",
+    file: "/portfolio-website/certificates/diploma-computer-application.pdf",
   },
 ];
 
