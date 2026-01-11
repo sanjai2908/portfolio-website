@@ -1,13 +1,11 @@
 {
-  "name": "react-portfolio",
-  "version": "0.0.1",
+  "name": "portfolio-website",
   "private": true,
-  "type": "module",
   "homepage": "https://sanjai2908.github.io/portfolio-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -21,8 +19,5 @@
     "@vitejs/plugin-react": "^4.2.1",
     "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
-  },
-  "engines": {
-    "node": "18.x"
   }
 }
