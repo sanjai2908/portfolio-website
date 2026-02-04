@@ -34,7 +34,7 @@ function About() {
             </p>
           </div>
           <div className="card">
-            <h3>Mindset</h3>
+            <h3>Strength</h3>
             <p>
               Collaborative, detail-focused, and consistent—prefer shipping
               small improvements often and learning from feedback.

@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { FiDownload, FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
 import ResumeModal from "../components/ResumeModal";
 
@@ -21,68 +21,62 @@ function Hero() {
     <section className="hero" id="hero">
       <div className="container hero-grid">
         <div className="hero-text" data-aos="fade-up">
-          <p className="pill">MSc Computer Science Student</p>
+          <p className="pill">Open to Internship and Job Opportunities</p>
           <h1>Sanjai S</h1>
-          <p className="headline">
-            Aspiring Full Stack Developer crafting clean, user-focused web
-            experiences.
-          </p>
+          <p className="headline">Aspiring Full Stack Developer</p>
           <p className="muted">
-            Passionate computer science student with basic working knowledge in
-            web development and programming. I enjoy learning modern tools and
-            shipping polished interfaces.
+            I build reliable, modern UIs and collaborate to turn ideas into
+            usable products.
           </p>
           <div className="cta-row">
             <button className="btn primary" onClick={openResumeModal}>
               <FiDownload />
               View Resume
             </button>
-            <button className="btn ghost" onClick={() => scrollTo("contact")}>
+            <button
+              className="btn ghost"
+              onClick={() => scrollTo("contact")}
+              aria-label="Go to contact section"
+            >
               <FiMail />
               Contact Me
             </button>
+          </div>
+          <div className="hero-socials">
             <a
-              className="btn ghost"
+              href="mailto:sanjais2908@gmail.com"
+              className="icon-btn"
+              title="Send Email"
+            >
+              <FiMail size={20} />
+            </a>
+            <a
               href="https://www.linkedin.com/in/sanjai2908/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="icon-btn"
             >
-              <FiLinkedin />
-              LinkedIn
+              <FiLinkedin size={20} />
             </a>
             <a
-              className="btn ghost"
               href="https://github.com/sanjai2908"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="icon-btn"
             >
-              <FiGithub />
-              GitHub
+              <FiGithub size={20} />
             </a>
           </div>
-          <div className="hero-meta">
-            <span className="tag">Full Stack Focus</span>
-            <span className="tag">Team Player</span>
-            <span className="tag">Continuous Learner</span>
-          </div>
         </div>
-        <div className="hero-card" data-aos="fade-left">
-          <div className="card-inner">
-            <p className="badge">Available for internships</p>
-            <p className="quote">
-              “I build reliable, modern UIs and collaborate to turn ideas into
-              usable products.”
-            </p>
-            <div className="info-grid">
-              <div>
-                <p className="label">Email</p>
-                <p className="value">sanjais2908@gmail.com</p>
-              </div>
-              <div>
-                <p className="label">Phone</p>
-                <p className="value">9003084706</p>
-              </div>
-            </div>
+        <div className="hero-image" data-aos="fade-left">
+          <div className="profile-wrapper">
+            <img
+              src="/portfolio-website/profile.jpg"
+              alt="Sanjai S Profile"
+              className="profile-img"
+            />
           </div>
         </div>
       </div>

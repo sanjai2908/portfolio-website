@@ -1,5 +1,12 @@
 import { useRef, useState } from "react";
-import { FiMail, FiPhone, FiSend, FiGithub, FiLinkedin } from "react-icons/fi";
+import {
+  FiMail,
+  FiPhone,
+  FiSend,
+  FiGithub,
+  FiLinkedin,
+  FiCheckCircle,
+} from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import SectionTitle from "../components/SectionTitle";
@@ -10,14 +17,26 @@ emailjs.init("clzYlYAnQF0W4aT61");
 function Contact() {
   const formRef = useRef(null);
   const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   // WhatsApp details
   const phoneNumber = "9003084706";
   const whatsappMessage =
     "Hi Sanjai, I saw your portfolio and want to connect.";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-    whatsappMessage
+    whatsappMessage,
   )}`;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,15 +47,19 @@ function Contact() {
       await emailjs.sendForm(
         "service_6jt5ex3",
         "template_xz9r10a",
-        formRef.current
+        formRef.current,
       );
 
-      alert("Message sent successfully!");
+      setSuccess(true);
       // Reset form after successful submit
       formRef.current.reset();
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      // Hide success message after 3 seconds
+      setTimeout(() => setSuccess(false), 3000);
     } catch (error) {
       console.error("EmailJS error:", error);
-      alert("Message failed to send");
+      alert("Message failed to send. Please try again.");
     } finally {
       setSending(false);
     }
@@ -96,41 +119,74 @@ function Contact() {
           </div>
           <div className="card form-card" data-aos="slide-left">
             <h3>Send a Message</h3>
+            {success && (
+              <div className="success-message">
+                <FiCheckCircle />
+                <span>
+                  Message sent successfully! I'll get back to you soon.
+                </span>
+              </div>
+            )}
             <form ref={formRef} className="form" onSubmit={handleSubmit}>
-              <label>
-                Name
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
-                  placeholder="Your name"
+                  placeholder="Your full name"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
+                  disabled={sending}
                 />
-              </label>
-              <label>
-                Email
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="you@example.com"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={sending}
                 />
-              </label>
-              <label>
-                Message
-                <textarea
-                  name="message"
-                  rows="4"
-                  placeholder="Write your message"
+              </div>
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  id="subject"
+                  type="text"
+                  name="subject"
+                  placeholder="What is this about?"
                   required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={sending}
                 />
-              </label>
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Write your message here..."
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={sending}
+                />
+              </div>
               <button
                 type="submit"
                 className="btn primary full"
                 disabled={sending}
               >
                 <FiSend />
-                {sending ? "Sending..." : "Submit"}
+                {sending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>

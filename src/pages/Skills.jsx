@@ -1,4 +1,5 @@
 import SectionTitle from "../components/SectionTitle";
+import { SkillBadge } from "../components/SkillBadge";
 
 const skillGroups = [
   { title: "Programming", items: ["Python", "JavaScript"] },
@@ -27,9 +28,7 @@ function Skills() {
               <h4>{group.title}</h4>
               <div className="badge-row">
                 {group.items.map((item) => (
-                  <span className="tag" key={item}>
-                    {item}
-                  </span>
+                  <SkillBadge key={item} skill={item} />
                 ))}
               </div>
             </div>
