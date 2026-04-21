@@ -21,15 +21,15 @@ function ResumeModal({ isOpen, onClose }) {
         </div>
         <div className="modal-body">
           <iframe
-            src="/portfolio-website/assets/Sanjai_S_Resumee.pdf"
+            src="/portfolio-website/assets/Sanjai_S_Resume_New.pdf"
             title="Resume Preview"
             className="resume-iframe"
           />
         </div>
         <div className="modal-footer">
           <a
-            href="/portfolio-website/assets/Sanjai_S_Resumee.pdf"
-            download="Sanjai_S_Resume.pdf"
+            href="/portfolio-website/assets/Sanjai_S_Resume_New.pdf"
+            download="Sanjai_S_Resume_New.pdf"
             className="btn primary"
           >
             <FiDownload />
